@@ -1,0 +1,1 @@
+sudo docker run --name=v8js -p 127.0.0.1:9009:9000 -v /www/dockerfs/sites:/www/sites  -d -it php-ssr-react /sbin/my_init
