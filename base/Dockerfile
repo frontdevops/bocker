@@ -14,18 +14,21 @@ ENV HOME /root
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # install add-apt-repository
-RUN apt-get update
-RUN apt-get install -y software-properties-common python-software-properties
+# Install default deps
+RUN export DEBIAN_FRONTEND="noninteractive" && \
+    apt-get update && \
+    apt-get -yq upgrade && \
+    apt-get -y install git make g++ wget chrpath python && \
+    apt-get clean
 
 # we'll need wget to fetch the key...
 RUN sudo apt-get install -y wget
 
 # Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
-
 
 #EOF#
