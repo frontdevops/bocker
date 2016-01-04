@@ -3,7 +3,7 @@ MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 RUN apt-get upgrade && \
     apt-get update && \
-    apt-get -y install libmozjs-24-dev git php5-dev && \
+    apt-get -y install libmozjs-24-dev git php5-dev php5-fpm && \
     apt-get clean
 
 RUN git clone https://github.com/christopherobin/php-spidermonkey.git /usr/local/src/php-spidermonkey
@@ -15,11 +15,11 @@ RUN cd /usr/local/src/php-spidermonkey && \
 	make install && \
 	make clean
 
-RUN echo extension=spidermonkey.so >> /etc/php5/cli/conf.d/spidermonkey.ini
+RUN echo extension=spidermonkey.so >> /etc/php5/cli/conf.d/spidermonkey.ini && \
+    echo extension=spidermonkey.so >> /etc/php5/fpm/conf.d/spidermonkey.ini
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 
 EXPOSE 9008
 WORKDIR /www/sites
