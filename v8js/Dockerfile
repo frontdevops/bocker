@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:0.9.18
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Install default deps
