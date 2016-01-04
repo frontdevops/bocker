@@ -1,7 +1,8 @@
 FROM phusion/baseimage:latest
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
-RUN apt-get upgrade && \
+RUN export DEBIAN_FRONTEND="noninteractive" && \
+    apt-get upgrade && \
     apt-get update && \
     apt-get -y install libmozjs-24-dev git php5-dev php5-fpm && \
     apt-get clean
