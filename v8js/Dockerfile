@@ -36,16 +36,16 @@ RUN cd /usr/local/src/v8js && make all test install && make clean
 
 
 # Autoload v8js.so
-RUN echo extension=v8js.so > /etc/php5/cli/conf.d/v8js.ini
+RUN echo extension=v8js.so > /etc/php5/cli/conf.d/v8js.ini && \
+    echo extension=v8js.so > /etc/php5/fpm/conf.d/v8js.ini
 
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+# Clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 9009
 WORKDIR /www/sites
 
-# Use baseimage-docker's init system.
+# Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
 #EOF#
