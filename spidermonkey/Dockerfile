@@ -19,13 +19,13 @@ RUN cd /usr/local/src/php-spidermonkey && \
 RUN echo extension=spidermonkey.so >> /etc/php5/cli/conf.d/spidermonkey.ini && \
     echo extension=spidermonkey.so >> /etc/php5/fpm/conf.d/spidermonkey.ini
 
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Clean
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 9008
 WORKDIR /www/sites
 
-# Use baseimage-docker's init system.
+# Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
 #EOF#
