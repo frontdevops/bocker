@@ -29,5 +29,4 @@ My Docker files for develop with PHP, HHVM+XHP, Nodejs, JXCore, Spidermonkey, V8
 
         Free 4 all!
 
-_WARNING!_ If you not trust me, don't do it. You can manually edit your `.bashrc` and copy code from docker.sh.
-Or not to touch anything and leave everything as is. It's your choice.
+_WARNING!_ If you not trust me, don't do anything. You can manually create your Docker image or download docker image from https://hub.docker.com by other user. It's your choice.
