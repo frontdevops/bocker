@@ -3,7 +3,7 @@
 # to `latest`! See
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
-FROM phusion/baseimage:0.9.18
+FROM alexmayorov/baseimage:latest
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Set correct environment variables.
@@ -13,9 +13,6 @@ ENV HOME /root
 # have to do that yourself. You may also comment out this instruction; the
 # init system will auto-generate one during boot.
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
-
-# Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
 
 # install add-apt-repository
 RUN apt-get update
@@ -39,5 +36,8 @@ RUN /usr/share/hhvm/install_fastcgi.sh
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# expose port 80
 EXPOSE 9000
+WORKDIR /www/sites
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
