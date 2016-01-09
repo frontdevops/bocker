@@ -22,3 +22,12 @@ My Docker files for develop with PHP, HHVM+XHP, Nodejs, JXCore, Spidermonkey, V8
 **Running a command inside the container**
 
     ssh -i ~/.ssh/id_rsa root@$ip echo hello world
+
+
+
+## License
+
+        Free 4 all!
+
+_WARNING!_ If you not trust me, don't do it. You can manually edit your `.bashrc` and copy code from docker.sh.
+Or not to touch anything and leave everything as is. It's your choice.
