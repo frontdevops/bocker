@@ -4,7 +4,7 @@ My Docker files for develop with PHP, HHVM+XHP, Nodejs, JXCore, Spidermonkey, V8
 ## Usage
 
     cd docker/image_name/ # where is Dockerfile
-    docker build -t hhvm .
+    docker build -t alexmayor/image-name .
 
 **Run for debuging**
 
