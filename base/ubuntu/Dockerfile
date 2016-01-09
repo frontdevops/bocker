@@ -14,7 +14,7 @@ RUN rm -f /etc/service/sshd/down
 # init system will auto-generate one during boot.
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-ADD /home/major/.ssh/id_rsa.pub /tmp/id_rsa.pub
+ADD id_rsa.pub /tmp/id_rsa.pub
 RUN cat /tmp/id_rsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
 
 # Install tools
