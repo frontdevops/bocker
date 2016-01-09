@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.18
+FROM alexmayorov/baseimage:latest
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Install default deps
@@ -27,9 +27,6 @@ RUN cp -R /usr/local/src/v8/include /usr/local && \
 ## Get v8js, compile and install
 RUN git clone https://github.com/preillyme/v8js.git /usr/local/src/v8js && \
     cd /usr/local/src/v8js && phpize && ./configure --with-v8js=/usr/local
-
-ENV NO_INTERACTION 1
-RUN cd /usr/local/src/v8js && make all test install
 
 ENV NO_INTERACTION 1
 RUN cd /usr/local/src/v8js && make all test install && make clean
