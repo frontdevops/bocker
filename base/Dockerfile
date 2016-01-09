@@ -8,17 +8,20 @@ MAINTAINER Alexander Mayorov <alexander@majorov.su>
 # Set correct environment variables.
 ENV HOME /root
 
+RUN rm -f /etc/service/sshd/down
 # Regenerate SSH host keys. baseimage-docker does not contain any, so you
 # have to do that yourself. You may also comment out this instruction; the
 # init system will auto-generate one during boot.
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-# install add-apt-repository
-# Install default deps
+ADD /home/major/.ssh/id_rsa.pub /tmp/id_rsa.pub
+RUN cat /tmp/id_rsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.pub
+
+# Install tools
 RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get update && \
     apt-get -yq upgrade && \
-    apt-get -y install git make g++ wget chrpath python wget && \
+    apt-get -y install build-essential git wget chrpath python wget && \
     apt-get clean
 
 # Clean up APT when done.
