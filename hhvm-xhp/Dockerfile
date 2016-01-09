@@ -4,6 +4,7 @@
 # https://github.com/phusion/baseimage-docker/blob/master/Changelog.md
 # for a list of version numbers.
 FROM phusion/baseimage:0.9.18
+MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Set correct environment variables.
 ENV HOME /root
