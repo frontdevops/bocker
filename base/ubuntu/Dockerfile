@@ -8,9 +8,6 @@ MAINTAINER Alexander Mayorov <alexander@majorov.su>
 # Set correct environment variables.
 ENV HOME /root
 
-ADD id_dsa.pub /tmp/id_dsa.pub
-RUN cat /tmp/id_dsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_dsa.pub
-
 # Install tools
 RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get update && \
@@ -18,6 +15,10 @@ RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get -y install build-essential git wget chrpath python wget && \
     apt-get clean
 
+
+# Uncomment for your SSH settings
+# ADD id_dsa.pub /tmp/id_dsa.pub
+# RUN cat /tmp/id_dsa.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_dsa.pub
 
 #RUN rm -f /etc/service/sshd/down
 # Regenerate SSH host keys. baseimage-docker does not contain any, so you
