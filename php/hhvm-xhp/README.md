@@ -8,7 +8,7 @@ The container doesn't have a HTTP server and database server configured. Only HH
 
 First, verify it works:
 
-    # docker build -t hhvm .
+    # docker build -t hhvm-xhp .
     # docker run --name=hhvm-xhp -p 127.0.0.1:9007:9000 -v /www/sites:/www/sites --rm -it hhvm /sbin/my_init -- bash -l
 
 This will expose port 9007 from localhost to 9000 within the container.
