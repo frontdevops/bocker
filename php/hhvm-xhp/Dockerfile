@@ -26,9 +26,15 @@ COPY server.ini /etc/hhvm/server.ini
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stderr /var/log/hhvm/error.log
 
-RUN mkdir -p /www/sites
-COPY index.hh /www/sites/index.hh
-COPY .hhconfig /www/sites/.hhconfig
+RUN mkdir -p /www/sites/test.com/public
+COPY www/.hhconfig /www/sites/test.com/public/.hhconfig
+COPY www/index.php /www/sites/test.com/public/index.php
+COPY www/index.php /www/sites/test.com/public/index.php
+COPY www/composer.json /www/sites/test.com/public/composer.json
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+RUN cd /www/sites/test.com/public/ && COMPOSER_HOME=$(pwd) composer install
+
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
