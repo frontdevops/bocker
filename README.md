@@ -8,7 +8,7 @@ My Docker files for develop with PHP, HHVM+XHP, Nodejs, JXCore, Spidermonkey, V8
 
 **Run for debuging**
 
-    sudo docker run -p 127.0.0.1:9009:9000 -v /www/dockerfs/sites:/www/sites --name=$tag --rm -it $image /sbin/my_init -- bash -l
+    sudo docker run --name=$tag --rm -it $image /sbin/my_init -- bash -l
 
 **Run as daemon**
 
