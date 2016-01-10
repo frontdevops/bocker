@@ -1,6 +1,9 @@
 # My Docker builds
 My Docker files for develop with PHP, HHVM+XHP, Nodejs, JXCore, Spidermonkey, V8JS, Server Side React Render and other...
 
+A simple Docker container for playing around with different developer tools. Based on the excellent Docker friendly phusion/baseimage for noobie.
+
+
 ## Usage
 
     cd docker/image_name/ # where is Dockerfile
