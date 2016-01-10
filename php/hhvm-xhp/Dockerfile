@@ -4,12 +4,14 @@ MAINTAINER Alexander Mayorov <alexander@majorov.su>
 # Set correct environment variables.
 ENV HOME /root
 
+ENV HHVM_VERSION 3.11.0~trusty
+
 # install hhvm
 RUN wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -
 RUN echo 'deb http://dl.hhvm.com/debian jessie main' > /etc/apt/sources.list.d/hhvm.list
 RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get update && \
-    apt-get -y install hhvm && \
+    apt-get install -y --no-install-recommends hhvm=$HHVM_VERSION && \
     apt-get clean
 
 RUN /usr/share/hhvm/install_fastcgi.sh
