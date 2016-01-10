@@ -20,3 +20,7 @@ For production you can run container as daemon:
 
 Now simply put your `.php` or `.hh` files to `/www/docker/files` on the host machine and enjoy Hacking! :)
 You should run `docker ps` to check the port equivalent on the host machine and go to http://localhost:{EXPOSED_PORT} to confirm you get the proverbial "Hello, world!" message.
+
+## XHP
+
+More details about XHP on page https://github.com/facebook/xhp-lib
