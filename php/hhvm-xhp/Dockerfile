@@ -29,10 +29,10 @@ COPY server.ini /etc/hhvm/server.ini
 RUN ln -sf /dev/stderr /var/log/hhvm/error.log
 
 RUN mkdir -p /www/sites/test.com/public
-COPY www/.hhconfig /www/sites/test.com/public/.hhconfig
-COPY www/index.php /www/sites/test.com/public/index.php
-COPY www/xhp.php /www/sites/test.com/public/xhp.php
-COPY www/composer.json /www/sites/test.com/public/composer.json
+COPY www/.hhconfig /www/sites/.hhconfig
+COPY www/index.php /www/sites/index.php
+COPY www/xhp.php /www/sites/xhp.php
+COPY www/composer.json /www/sites/composer.json
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 RUN cd /www/sites/test.com/public/ && COMPOSER_HOME=$(pwd) composer install
