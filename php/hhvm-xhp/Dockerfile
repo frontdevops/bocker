@@ -35,7 +35,7 @@ COPY www/composer.json /www/sites/test.com/public/composer.json
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 RUN cd /www/sites/test.com/public/ && COMPOSER_HOME=$(pwd) composer install
 
-COPY 01_start_hhvm.sh /etc/my_init.d/01_start_hhvm.sh
+ADD 01_start_hhvm.sh /etc/my_init.d/01_start_hhvm.sh
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
