@@ -1,4 +1,4 @@
-<?hh
+<?hh // decl
 
 $pidfile = ini_get('hhvm.pid_file');
 if (!file_exists($pidfile)) $pidfile = ini_get('pid');
