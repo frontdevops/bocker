@@ -1,4 +1,4 @@
-FROM alexmayorov/baseimage:latest
+FROM alexmayorov/base:latest
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Set correct environment variables.
