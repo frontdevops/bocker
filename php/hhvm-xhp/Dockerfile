@@ -15,13 +15,12 @@ RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get clean
 
 #RUN /usr/share/hhvm/install_fastcgi.sh
+#RUN mkdir /etc/service/hhvm
+#ADD hhvm.sh /etc/service/hhvm/run
+#RUN chmod 700 /etc/service/hhvm/run
 
 COPY php.ini /etc/hhvm/php.ini
 COPY server.ini /etc/hhvm/server.ini
-
-RUN mkdir /etc/service/hhvm
-ADD hhvm.sh /etc/service/hhvm/run
-RUN chmod 700 /etc/service/hhvm/run
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stderr /var/log/hhvm/error.log
