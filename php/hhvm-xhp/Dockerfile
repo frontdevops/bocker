@@ -7,8 +7,8 @@ ENV HOME /root
 ENV HHVM_VERSION 3.11.0~trusty
 
 # install hhvm
-RUN wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add -
-RUN echo 'deb http://dl.hhvm.com/debian jessie main' > /etc/apt/sources.list.d/hhvm.list
+RUN wget -O - http://dl.hhvm.com/conf/hhvm.gpg.key | sudo apt-key add - && \
+    echo 'deb http://dl.hhvm.com/ubuntu trusty main' | tee /etc/apt/sources.list.d/hhvm.list
 RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get update && \
     apt-get install -y --no-install-recommends hhvm=$HHVM_VERSION && \
