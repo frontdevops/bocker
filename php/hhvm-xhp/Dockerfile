@@ -29,7 +29,7 @@ RUN ln -sf /dev/stderr /var/log/hhvm/error.log
 RUN mkdir -p /www/sites/test.com/public
 COPY www/.hhconfig /www/sites/test.com/public/.hhconfig
 COPY www/index.php /www/sites/test.com/public/index.php
-COPY www/index.php /www/sites/test.com/public/index.php
+COPY www/xhp.php /www/sites/test.com/public/xhp.php
 COPY www/composer.json /www/sites/test.com/public/composer.json
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
