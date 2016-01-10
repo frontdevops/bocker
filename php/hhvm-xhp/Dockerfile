@@ -21,6 +21,9 @@ RUN mkdir /etc/service/hhvm
 ADD hhvm.sh /etc/service/hhvm/run
 RUN chmod 700 /etc/service/hhvm/run
 
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stderr /var/log/hhvm/error.log
+
 RUN mkdir -p /www/sites
 ADD index.hh /www/sites/index.hh
 ADD .hhconfig /www/sites/.hhconfig
