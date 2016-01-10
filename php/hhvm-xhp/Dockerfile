@@ -14,7 +14,7 @@ RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get install -y --no-install-recommends hhvm=$HHVM_VERSION && \
     apt-get clean
 
-RUN /usr/share/hhvm/install_fastcgi.sh
+#RUN /usr/share/hhvm/install_fastcgi.sh
 
 COPY php.ini /etc/hhvm/php.ini
 COPY server.ini /etc/hhvm/server.ini
