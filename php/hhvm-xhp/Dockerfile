@@ -19,6 +19,7 @@ RUN export DEBIAN_FRONTEND="noninteractive" && \
 #ADD hhvm.sh /etc/service/hhvm/run
 #RUN chmod 700 /etc/service/hhvm/run
 
+COPY hhvm.sh /etc/init.d/hhvm
 COPY php.ini /etc/hhvm/php.ini
 COPY server.ini /etc/hhvm/server.ini
 
