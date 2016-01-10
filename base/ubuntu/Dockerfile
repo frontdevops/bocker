@@ -11,8 +11,8 @@ ENV HOME /root
 # Install tools
 RUN export DEBIAN_FRONTEND="noninteractive" && \
     apt-get update && \
-    apt-get -yq upgrade && \
-    apt-get -y install build-essential git wget chrpath python wget && \
+    apt-get upgrade && \
+    apt-get install -y build-essential git wget chrpath python wget && \
     apt-get clean
 
 RUN rm -f /etc/service/sshd/down
