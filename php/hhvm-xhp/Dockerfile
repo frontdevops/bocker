@@ -1,4 +1,4 @@
-FROM alexmayorov/base:latest
+FROM alexmayorov/base-ubuntu:latest
 MAINTAINER Alexander Mayorov <alexander@majorov.su>
 
 # Set correct environment variables.
