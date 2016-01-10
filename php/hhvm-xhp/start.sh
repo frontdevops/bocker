@@ -1,3 +1,5 @@
+#!/bin/sh
+
 DAEMON=/usr/bin/hhvm
 PIDFILE=/var/run/hhvm/pid
 CONFIG_FILE="/etc/hhvm/server.ini"
