@@ -27,8 +27,8 @@ COPY server.ini /etc/hhvm/server.ini
 RUN ln -sf /dev/stderr /var/log/hhvm/error.log
 
 RUN mkdir -p /www/sites
-ADD index.hh /www/sites/index.hh
-ADD .hhconfig /www/sites/.hhconfig
+COPY index.hh /www/sites/index.hh
+COPY .hhconfig /www/sites/.hhconfig
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
