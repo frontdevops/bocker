@@ -20,6 +20,8 @@ RUN export DEBIAN_FRONTEND="noninteractive" && \
 #RUN chmod 700 /etc/service/hhvm/run
 
 COPY hhvm.sh /etc/init.d/hhvm
+RUN chmod +x /etc/init.d/hhvm
+
 COPY php.ini /etc/hhvm/php.ini
 COPY server.ini /etc/hhvm/server.ini
 
@@ -35,7 +37,8 @@ COPY www/composer.json /www/sites/test.com/public/composer.json
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 RUN cd /www/sites/test.com/public/ && COMPOSER_HOME=$(pwd) composer install
 
-ADD 01_start_hhvm.sh /etc/my_init.d/01_start_hhvm.sh
+COPY 01_start_hhvm.sh /etc/my_init.d/01_start_hhvm.sh
+RUN chmod +x /etc/my_init.d/01_start_hhvm.sh
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
