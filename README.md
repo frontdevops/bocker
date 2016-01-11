@@ -18,15 +18,6 @@ A simple Docker container for playing around with different developer tools. Bas
     sudo docker run -p 127.0.0.1:9009:9000 -v /www/sites:/www/sites --name=$tag -d $image
 
 
-**Login to the container**
-
-    ssh -i ~/.ssh/id_rsa root@$ip
-
-**Running a command inside the container**
-
-    ssh -i ~/.ssh/id_rsa root@$ip echo hello world
-
-
 
 ## License
 
