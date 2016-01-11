@@ -15,7 +15,7 @@ A simple Docker container for playing around with different developer tools. Bas
 
 **Run as daemon**
 
-    sudo docker run -p 127.0.0.1:9009:9000 -v /www/sites:/www/sites --name=$tag -d $image
+    sudo docker run -p 127.0.0.1:9009:9000 -v /www/sites:/www/sites --name=$tag -d $image /sbin/my_init
 
 
 
